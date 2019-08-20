@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 import Header from "./Components/Header/Header";
 import SideList from "./Components/SideList/SideList";
+import DetailedInfo from "./Components/DetailedInfo/DetailedInfo";
 
 function App() {
   return (
@@ -10,6 +11,9 @@ function App() {
       <section className="main">
         <div className="sidebar-list">
           <SideList />
+        </div>
+        <div className="detailed-info-card">
+          <DetailedInfo />
         </div>
       </section>
     </div>

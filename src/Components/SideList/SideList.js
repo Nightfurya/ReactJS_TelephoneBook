@@ -11,6 +11,13 @@ class SideList extends Component {
     allPersonsList: this.props.allPersonsList
   };
 
+  findPerson = name => {
+    const person = this.state.allPersonsList.find(item => item.general.firstName === name);
+    const indexPerson = this.state.allPersonsList.findIndex(item => item.general.firstName === name);
+    this.props.successSetCardDetail(person);
+    this.props.successSetCardIndex(indexPerson);
+  };
+
   render() {
     return (
       <>
@@ -21,7 +28,11 @@ class SideList extends Component {
           {this.state.allPersonsList.map((item, i) => {
             return (
               <>
-                <div key={item.general.firstName} className="card-container">
+                <div
+                  key={item.general.firstName}
+                  className={this.props.activePersonPos === i ? "card-container active" : "card-container"}
+                  onClick={() => this.findPerson(item.general.firstName)}
+                >
                   <div className="avatar-container">
                     <Image avatar floated="left" src={item.general.avatar} size="mini" />
                   </div>
@@ -45,7 +56,9 @@ class SideList extends Component {
 
 function mapStateToProps({ app }) {
   return {
-    allPersonsList: app.allPersonsList
+    allPersonsList: app.allPersonsList,
+    cardDetail: app.cardDetail,
+    activePersonPos: app.activePersonPos
   };
 }
 
