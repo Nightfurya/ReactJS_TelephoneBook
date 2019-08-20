@@ -6,7 +6,12 @@ class Header extends Component {
     return (
       <header>
         <div className="link__container">
-          <a href="https://create-react-app.dev/" target="_blank" className="link link__header">
+          <a
+            href="https://create-react-app.dev/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="link link__header"
+          >
             React
           </a>
         </div>
