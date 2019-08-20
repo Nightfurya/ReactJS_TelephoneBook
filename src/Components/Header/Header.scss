@@ -1,0 +1,29 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #20232a;
+  padding: 20px 70px;
+  color: #ffffff;
+}
+.link {
+  text-decoration: none;
+  color: #61dafb;
+}
+.link__header {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 20px;
+}
+.paragraph__header {
+  margin: 0;
+  padding-left: 15px;
+  padding-right: 15px;
+  font-size: 30px;
+  font-weight: 100;
+  font-style: italic;
+  transition: all 0.3s ease;
+  &:hover {
+    color: #61dafb;
+  }
+}
