@@ -1,0 +1,45 @@
+.detailed-info-card {
+  width: 70vw;
+  margin: 0 50px;
+  position: relative;
+}
+.substrate__main {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  box-shadow: 0px 0px 23px 3px rgba(156, 120, 156, 1);
+}
+.substrate__first {
+  position: absolute;
+  z-index: 9;
+  top: 2%;
+  left: -2%;
+  width: 102%;
+  height: 102%;
+  transform: rotate(2deg);
+  background: #e8eb86;
+}
+.substrate__second {
+  position: absolute;
+  z-index: 8;
+  top: 0%;
+  left: 0%;
+  width: 102%;
+  height: 102%;
+  transform: rotate(1deg);
+  background: #ccc1aa;
+}
+
+.substrate__third {
+  position: absolute;
+  z-index: 7;
+  top: 0%;
+  left: 0%;
+  width: 102%;
+  height: 102%;
+  transform: rotate(-1deg);
+  box-shadow: 0px 0px 23px 3px rgba(156, 120, 156, 1);
+  background: #ead6ab;
+}

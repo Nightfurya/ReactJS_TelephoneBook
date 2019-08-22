@@ -7,23 +7,22 @@ import * as appActions from "../../Store/app/app.actions";
 
 class DetailedInfo extends Component {
   render() {
-    const { cardDetail } = this.props;
+    const { cardDetail, clickCounter } = this.props;
     return (
-      <>
-        <p>
-          <b>Email:</b> {cardDetail.contact.email}
-        </p>
-        <p>
-          <b>Phone:</b> {cardDetail.contact.phone}
-        </p>
-      </>
+      <div className="detailed-info-card">
+        <div className="substrate__main">{cardDetail.general.firstName}</div>
+        <div className="substrate__first" style={{ display: clickCounter >= 1 ? "block" : "none" }} />
+        <div className="substrate__second" style={{ display: clickCounter >= 2 ? "block" : "none" }} />
+        <div className="substrate__third" style={{ display: clickCounter >= 3 ? "block" : "none" }} />
+      </div>
     );
   }
 }
 
 function mapStateToProps({ app }) {
   return {
-    cardDetail: app.cardDetail
+    cardDetail: app.cardDetail,
+    clickCounter: app.clickCounter
   };
 }
 

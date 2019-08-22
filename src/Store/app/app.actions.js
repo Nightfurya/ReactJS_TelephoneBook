@@ -11,3 +11,9 @@ export const setCardIndex = createAction("Write a single client's index.");
 export const successSetCardIndex = index => dispatch => {
   dispatch(setCardIndex(index));
 };
+
+// set click counter
+export const setClickCounter = createAction("User clicks");
+export const successSetClickCounter = counter => dispatch => {
+  dispatch(setClickCounter(counter));
+};

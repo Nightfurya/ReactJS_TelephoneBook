@@ -6,7 +6,8 @@ const DATA = require("../../Clients/clients");
 const initialState = {
   allPersonsList: DATA,
   cardDetail: { ...DATA[0] },
-  activePersonPos: 0
+  activePersonPos: 0,
+  clickCounter: 0
 };
 
 const reducer = {
@@ -17,6 +18,10 @@ const reducer = {
   [appActions.setCardIndex]: (state, index) => ({
     ...state,
     activePersonPos: index
+  }),
+  [appActions.setClickCounter]: (state, counter) => ({
+    ...state,
+    clickCounter: counter
   })
 };
 

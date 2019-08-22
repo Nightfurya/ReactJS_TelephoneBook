@@ -8,14 +8,20 @@ import * as appActions from "../../Store/app/app.actions";
 
 class SideList extends Component {
   state = {
-    allPersonsList: this.props.allPersonsList
+    allPersonsList: this.props.allPersonsList,
+    clickCounter: 0
   };
 
   findPerson = name => {
     const person = this.state.allPersonsList.find(item => item.general.firstName === name);
     const indexPerson = this.state.allPersonsList.findIndex(item => item.general.firstName === name);
+    const clickCounter = this.state.clickCounter + 1;
+    this.setState({
+      clickCounter: clickCounter
+    });
     this.props.successSetCardDetail(person);
     this.props.successSetCardIndex(indexPerson);
+    this.props.successSetClickCounter(this.state.clickCounter);
   };
 
   render() {
@@ -58,7 +64,8 @@ function mapStateToProps({ app }) {
   return {
     allPersonsList: app.allPersonsList,
     cardDetail: app.cardDetail,
-    activePersonPos: app.activePersonPos
+    activePersonPos: app.activePersonPos,
+    clickCounter: app.clickCounter
   };
 }
 

@@ -12,9 +12,7 @@ function App() {
         <div className="sidebar-list">
           <SideList />
         </div>
-        <div className="detailed-info-card">
-          <DetailedInfo />
-        </div>
+        <DetailedInfo />
       </section>
     </div>
   );
