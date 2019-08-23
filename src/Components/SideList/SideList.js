@@ -24,11 +24,48 @@ class SideList extends Component {
     this.props.successSetClickCounter(this.state.clickCounter);
   };
 
+  searchViaInput = event => {
+    const value = event.target.value.toLowerCase().toString();
+    const newArray = this.props.allPersonsList;
+    const result = this.filterByAll(newArray, value);
+    if (result.length !== 0) {
+      const currentUserWithActivePos = result[0];
+      this.props.successSetCardIndex(0);
+      this.props.successSetCardDetail(currentUserWithActivePos);
+    } else {
+      this.props.successSetCardIndex(0);
+      this.props.successSetCardDetail(result);
+    }
+
+    this.setState({
+      allPersonsList: result
+    });
+  };
+
+  filterByAll(arr, searchKey) {
+    return arr.filter(o => {
+      try {
+        return JSON.stringify(o)
+          .toLowerCase()
+          .includes(searchKey.toString());
+      } catch (err) {
+        return false;
+      }
+    });
+  }
+
   render() {
     return (
       <>
         <div className="search__container">
-          <Input className="search-input" icon="users" iconPosition="left" placeholder="Search users..." />
+          <Input
+            className="search-input"
+            icon="users"
+            iconPosition="left"
+            placeholder="Search users..."
+            defaultValue=""
+            onChange={this.searchViaInput}
+          />
         </div>
         <div className="side-list__container">
           {this.state.allPersonsList.map((item, i) => {
